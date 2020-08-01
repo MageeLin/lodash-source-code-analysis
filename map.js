@@ -1,12 +1,12 @@
 /**
- * Creates an array of values by running each element of `array` thru `iteratee`.
- * The iteratee is invoked with three arguments: (value, index, array).
+ * 通过调用迭代函数（iteratee）遍历数数组中的每一个元素来创建一个新数组
+ * 迭代函数有三个参数: (value, index, array)
  *
  * @since 5.0.0
  * @category Array
- * @param {Array} array The array to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array} Returns the new mapped array.
+ * @param {Array} array 被迭代的数组
+ * @param {Function} iteratee 每次迭代时调用的函数
+ * @returns {Array} 返回新的映射后的数组
  * @example
  *
  * function square(n) {
@@ -17,13 +17,17 @@
  * // => [16, 64]
  */
 function map(array, iteratee) {
+  // 初始化index、length和result
   let index = -1
   const length = array == null ? 0 : array.length
   const result = new Array(length)
 
+  // 迭代
   while (++index < length) {
+    // 把迭代函数返回的结果挨个赋值给新数组的对应位置
     result[index] = iteratee(array[index], index, array)
   }
+  // 返回新数组
   return result
 }
 

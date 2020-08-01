@@ -1,10 +1,10 @@
 /**
- * Checks if a `cache` value for `key` exists.
+ * 检查缓存中键对应的值是否存在
  *
  * @private
- * @param {Object} cache The cache to query.
- * @param {string} key The key of the entry to check.
- * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+ * @param {Object} cache 需要查询的缓存
+ * @param {string} key 需要查询的键
+ * @returns {boolean} 如果检查的键对应的值存在则返回true，否则返回false
  */
 function cacheHas(cache, key) {
   return cache.has(key)

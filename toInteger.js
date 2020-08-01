@@ -1,15 +1,15 @@
 import toFinite from './toFinite.js'
 
 /**
- * Converts `value` to an integer.
+ * 转换值为整数
  *
- * **Note:** This method is loosely based on
+ * **注意:** 这个方法大致基于
  * [`ToInteger`](http://www.ecma-international.org/ecma-262/7.0/#sec-tointeger).
  *
  * @since 4.0.0
  * @category Lang
- * @param {*} value The value to convert.
- * @returns {number} Returns the converted integer.
+ * @param {*} value 需要转换的值
+ * @returns {number} 返回转换后的整数
  * @see isInteger, isNumber, toNumber
  * @example
  *
@@ -26,9 +26,11 @@ import toFinite from './toFinite.js'
  * // => 3
  */
 function toInteger(value) {
+  // 转换为有限数字
   const result = toFinite(value)
+  // 对1取余
   const remainder = result % 1
-
+  // 能取到余数就减去余数，返回了整数值
   return remainder ? result - remainder : result
 }
 
