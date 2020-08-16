@@ -2,16 +2,16 @@ import arrayLikeKeys from './.internal/arrayLikeKeys.js'
 import isArrayLike from './isArrayLike.js'
 
 /**
- * Creates an array of the own enumerable property names of `object`.
+ * 创建一个数组，存放`object`的自身可枚举属性名
  *
- * **Note:** Non-object values are coerced to objects. See the
- * [ES spec](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
- * for more details.
+ * **注意:** 非object值将被强制转化为object，详见
+ * [ES 规范](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
+ * 查看更多细节
  *
  * @since 0.1.0
  * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
+ * @param {Object} object 要查询的对象
+ * @returns {Array} 返回存放属性名的数组
  * @see values, valuesIn
  * @example
  *
@@ -29,8 +29,11 @@ import isArrayLike from './isArrayLike.js'
  * // => ['0', '1']
  */
 function keys(object) {
+  // 如果是类数组对象，就返回arrayLikeKeys(object)
   return isArrayLike(object)
     ? arrayLikeKeys(object)
+    // 如果是不是类数组对象，就直接用Object.keys
+    // （其实先用Object(object)进行了强制类型转换）
     : Object.keys(Object(object))
 }
 

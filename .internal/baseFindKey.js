@@ -1,21 +1,24 @@
 /**
- * The base implementation of methods like `findKey` and `findLastKey`
- * which iterates over `collection` using `eachFunc`.
+ * `findKey`和`findLastKey`方法的基础实现，使用`eachFunc`来迭代`collection`
  *
  * @private
- * @param {Array|Object} collection The collection to inspect.
- * @param {Function} predicate The function invoked per iteration.
- * @param {Function} eachFunc The function to iterate over `collection`.
- * @returns {*} Returns the found element or its key, else `undefined`.
+ * @param {Array|Object} collection 要检查的的collection
+ * @param {Function} predicate 每次迭代时调用的函数
+ * @param {Function} eachFunc 遍历`collection`的函数
+ * @returns {*} 返回查到的元素或它的key，查不到则返回`undefined` ？
  */
 function baseFindKey(collection, predicate, eachFunc) {
+  // 初始化result
   let result
+  // eachFunc是用于迭代的方法
   eachFunc(collection, (value, key, collection) => {
+    // predicate是每次迭代时的断言，判断真假
     if (predicate(value, key, collection)) {
       result = key
       return false
     }
   })
+  // 最后返回查到的key
   return result
 }
 
