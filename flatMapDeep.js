@@ -1,18 +1,17 @@
 import baseFlatten from './.internal/baseFlatten.js'
 import map from './map.js'
 
-/** Used as references for various `Number` constants. */
+/** 用于多种`Number`类型常量的引用 */
 const INFINITY = 1 / 0
 
 /**
- * This method is like `flatMap` except that it recursively flattens the
- * mapped results.
+ * 此方法类似`flatMap`，但是会递归的扁平化map后的结果。
  *
  * @since 4.7.0
  * @category Collection
- * @param {Array|Object} collection The collection to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array} Returns the new flattened array.
+ * @param {Array|Object} collection 要迭代的集合
+ * @param {Function} iteratee 每次迭代调用的函数
+ * @returns {Array} 返回扁平化后的新数组
  * @see flatMap, flatMapDepth, flatten, flattenDeep, flattenDepth, map, mapKeys, mapValues
  * @example
  *
@@ -24,6 +23,8 @@ const INFINITY = 1 / 0
  * // => [1, 1, 2, 2]
  */
 function flatMapDeep(collection, iteratee) {
+  // map用来迭代集合
+  // 调用baseFlatten并传参1 / 0，无限递归迭代
   return baseFlatten(map(collection, iteratee), INFINITY)
 }
 

@@ -2,15 +2,14 @@ import baseFlatten from './.internal/baseFlatten.js'
 import map from './map.js'
 
 /**
- * This method is like `flatMap` except that it recursively flattens the
- * mapped results up to `depth` times.
+ * 此方法类似`flatMap`，但是会按照`depth`固定深度的扁平化map后的数组
  *
  * @since 4.7.0
  * @category Collection
- * @param {Array|Object} collection The collection to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @param {number} [depth=1] The maximum recursion depth.
- * @returns {Array} Returns the new flattened array.
+ * @param {Array|Object} collection 要迭代的集合
+ * @param {Function} iteratee 每次迭代调用的函数
+ * @param {number} [depth=1] 递归的最大的深度
+ * @returns {Array} 返回新的扁平化后的数组
  * @see flatMap, flatMapDeep, flatten, flattenDeep, flattenDepth, map, mapKeys, mapValues
  * @example
  *
@@ -22,7 +21,11 @@ import map from './map.js'
  * // => [[1, 1], [2, 2]]
  */
 function flatMapDepth(collection, iteratee, depth) {
+  // 先获取深度
+  // +depth强制转化为Number类型
   depth = depth === undefined ? 1 : +depth
+  // map用来迭代集合
+  // 调用baseFlatten并传参depth，按固定深度递归扁平化
   return baseFlatten(map(collection, iteratee), depth)
 }
 
