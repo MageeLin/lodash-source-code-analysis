@@ -15,6 +15,7 @@ function baseIndexOf(array, value, fromIndex) {
   // value为NaN的时候，调用baseFindIndex；value不为NaN的时候，调用strictIndexOf
   return value === value
     ? strictIndexOf(array, value, fromIndex)
+    // 利用的是断言函数baseIsNaN
     : baseFindIndex(array, baseIsNaN, fromIndex)
 }
 
