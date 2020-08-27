@@ -1,11 +1,11 @@
 import isArrayLikeObject from '../isArrayLikeObject.js'
 
 /**
- * Casts `value` to an empty array if it's not an array like object.
+ * 如果`value`不是一个类数组对象，则返回一个空数组
  *
  * @private
- * @param {*} value The value to inspect.
- * @returns {Array|Object} Returns the cast array-like object.
+ * @param {*} value 要检查的值
+ * @returns {Array|Object} 返回转换后的类数组对象
  */
 function castArrayLikeObject(value) {
   return isArrayLikeObject(value) ? value : []
