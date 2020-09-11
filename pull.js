@@ -1,18 +1,16 @@
 import pullAll from './pullAll.js'
 
 /**
- * Removes all given values from `array` using
- * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
- * for equality comparisons.
+ * 移除数组`array`中所有和给定值相等的元素，
+ * 使用 [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero) 进行全等比较。
  *
- * **Note:** Unlike `without`, this method mutates `array`. Use `remove`
- * to remove elements from an array by predicate.
+ * **注意：** 和 `without` 方法不同，这个方法会改变数组。通过断言使用 `remove` 从一个数组中移除元素。
  *
  * @since 2.0.0
  * @category Array
- * @param {Array} array The array to modify.
- * @param {...*} [values] The values to remove.
- * @returns {Array} Returns `array`.
+ * @param {Array} array 要修改的数组。
+ * @param {...*} [values] 要删除的值。
+ * @returns {Array} 返回 `array`.
  * @see pullAll, pullAllBy, pullAllWith, pullAt, remove, reject
  * @example
  *
@@ -23,6 +21,7 @@ import pullAll from './pullAll.js'
  * // => ['b', 'b']
  */
 function pull(array, ...values) {
+  // 核心调用的pullAll
   return pullAll(array, values)
 }
 

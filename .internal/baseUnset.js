@@ -4,16 +4,19 @@ import parent from './parent.js'
 import toKey from './toKey.js'
 
 /**
- * The base implementation of `unset`.
+ * `unset`方法的基础实现
  *
  * @private
- * @param {Object} object The object to modify.
- * @param {Array|string} path The property path to unset.
- * @returns {boolean} Returns `true` if the property is deleted, else `false`.
+ * @param {Object} object 要修改的对象
+ * @param {Array|string} path 要移除的属性路径
+ * @returns {boolean} 如果删除成功，那么返回 `true` ，否则返回 `false`。
  */
 function baseUnset(object, path) {
+  // 获取属性路径数组
   path = castPath(path, object)
+  // 获取父级属性值的引用
   object = parent(object, path)
+  // 在父级属性值中删掉该属性
   return object == null || delete object[toKey(last(path))]
 }
 
