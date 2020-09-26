@@ -1,21 +1,20 @@
 import baseSortedIndex from './.internal/baseSortedIndex.js'
 
 /**
- * Uses a binary search to determine the lowest index at which `value`
- * should be inserted into `array` in order to maintain its sort order.
+ * 使用二进制检索来决定应该插入到数组中的`value`的最小的索引位置，以保证array的排序。
  *
  * @since 0.1.0
  * @category Array
- * @param {Array} array The sorted array to inspect.
- * @param {*} value The value to evaluate.
- * @returns {number} Returns the index at which `value` should be inserted
- *  into `array`.
+ * @param {Array} array 要检查的已排序数组。
+ * @param {*} value 要计算的值
+ * @returns {number} 返回 `value`应该在`array`中插入的位置 `index`。
  * @example
  *
  * sortedIndex([30, 50], 40)
  * // => 1
  */
 function sortedIndex(array, value) {
+  // 其实是调用 baseSortedIndex(array, value, false)
   return baseSortedIndex(array, value)
 }
 
