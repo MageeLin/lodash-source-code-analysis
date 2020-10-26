@@ -1,15 +1,14 @@
 import baseWhile from './.internal/baseWhile.js'
 
 /**
- * Creates a slice of `array` with elements taken from the end. Elements are
- * taken until `predicate` returns falsey. The predicate is invoked with
- * three arguments: (value, index, array).
+ * 从 `array` 的结束位置开始向左提取元素，直到 `predicate` 断言返回假值。
+ * predicate 会传入三个参数： (value, index, array)。
  *
  * @since 3.0.0
  * @category Array
- * @param {Array} array The array to query.
- * @param {Function} predicate The function invoked per iteration.
- * @returns {Array} Returns the slice of `array`.
+ * @param {Array} array 要查询的数组。
+ * @param {Function} predicate 每次迭代调用的断言函数。
+ * @returns {Array} 返回 `array` 的切片。
  * @example
  *
  * const users = [
@@ -23,6 +22,7 @@ import baseWhile from './.internal/baseWhile.js'
  */
 function takeRightWhile(array, predicate) {
   return (array != null && array.length)
+    // baseWhile(array, predicate, isDrop, fromRight)
     ? baseWhile(array, predicate, false, true)
     : []
 }

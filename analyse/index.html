@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lodash测试</title>
+    <script src="lodash.js"></script>
+  </head>
+  <body>
+    <script>
+      const users = [
+        { user: "barney", active: true },
+        { user: "fred", active: true },
+        { user: "pebbles", active: false },
+      ];
+
+      const result = _.takeWhile(users, ({ active }) => active);
+      console.log('LJY-dev: -----------------------');
+      console.log('LJY-dev: result', result);
+      console.log('LJY-dev: -----------------------');
+    </script>
+  </body>
+</html>
