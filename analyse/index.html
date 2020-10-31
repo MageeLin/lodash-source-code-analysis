@@ -8,16 +8,19 @@
   </head>
   <body>
     <script>
-      const users = [
-        { user: "barney", active: true },
-        { user: "fred", active: true },
-        { user: "pebbles", active: false },
-      ];
+      // uniqBy的官方示例
+      _.uniqBy([2.1, 1.2, 2.3], Math.floor);
+      console.log('LJY-dev: -------------------------------------------------------------------------------------');
+      console.log('LJY-dev: _.uniqBy([2.1, 1.2, 2.3], Math.floor)', _.uniqBy([2.1, 1.2, 2.3], Math.floor));
+      console.log('LJY-dev: -------------------------------------------------------------------------------------');
+      // => [2.1, 1.2]
 
-      const result = _.takeWhile(users, ({ active }) => active);
-      console.log('LJY-dev: -----------------------');
-      console.log('LJY-dev: result', result);
-      console.log('LJY-dev: -----------------------');
+      // 用uniqWith实现
+      _.uniqWith([2.1, 1.2, 2.3], (arrVal, othVal) => Math.floor(arrVal) === Math.floor(othVal));
+      console.log('LJY-dev: -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------');
+      console.log('LJY-dev: _.uniqWith([2.1, 1.2, 2.3], (arrVal, othVal) => Math.floor(arrVal) === Math.floor(othVal))', _.uniqWith([2.1, 1.2, 2.3], (arrVal, othVal) => Math.floor(arrVal) === Math.floor(othVal)));
+      console.log('LJY-dev: -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------');
+      // => [2.1, 1.2]
     </script>
   </body>
 </html>

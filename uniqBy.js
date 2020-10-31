@@ -1,17 +1,16 @@
 import baseUniq from './.internal/baseUniq.js'
 
 /**
- * This method is like `uniq` except that it accepts `iteratee` which is
- * invoked for each element in `array` to generate the criterion by which
- * uniqueness is computed. The order of result values is determined by the
- * order they occur in the array. The iteratee is invoked with one argument:
- * (value).
+ * 这个方法类似 `uniq` ，但是它接受一个 `iteratee` （迭代函数），
+ * 调用数组（array）的每个元素以产生唯一性计算的标准。
+ * 值在array中的顺序决定result的顺序。
+ * iteratee 调用时会传入一个参数：(value)。
  *
  * @since 4.0.0
  * @category Array
- * @param {Array} array The array to inspect.
- * @param {Function} iteratee The iteratee invoked per element.
- * @returns {Array} Returns the new duplicate free array.
+ * @param {Array} array 要检查的array。
+ * @param {Function} iteratee iteratee调用每个元素。
+ * @returns {Array} 返回一个去重后的新的array副本。
  * @see uniq, uniqWith
  * @example
  *
@@ -19,6 +18,7 @@ import baseUniq from './.internal/baseUniq.js'
  * // => [2.1, 1.2]
  */
 function uniqBy(array, iteratee) {
+  // array有值且为数组时，返回baseUniq()的结果
   return (array != null && array.length)
     ? baseUniq(array, iteratee)
     : []
