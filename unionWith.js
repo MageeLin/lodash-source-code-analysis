@@ -11,7 +11,7 @@ import last from './last.js'
  *
  * @since 4.0.0
  * @category Array
- * @param {...Array} [arrays] The arrays to inspect.要检查的arrays。
+ * @param {...Array} [arrays] 要检查的arrays。
  * @param {Function} [comparator] `comparator`比较器调用每个元素。
  * @returns {Array} 返回组合values后的新数组。
  * @see difference, union, unionBy, without, xor, xorBy

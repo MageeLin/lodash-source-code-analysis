@@ -1,13 +1,13 @@
 /**
- * The base implementation of `assignValue` and `assignMergeValue` without
- * value checks.
+ * `assignValue` and `assignMergeValue`的基础实现，没有进行value检查
  *
  * @private
- * @param {Object} object The object to modify.
- * @param {string} key The key of the property to assign.
- * @param {*} value The value to assign.
+ * @param {Object} object 要修改的对象
+ * @param {string} key 要分配的属性键
+ * @param {*} 要分配的值
  */
 function baseAssignValue(object, key, value) {
+  // 当给对象的原型分配值时，使用Object.defineProperty()
   if (key == '__proto__') {
     Object.defineProperty(object, key, {
       'configurable': true,
@@ -16,6 +16,7 @@ function baseAssignValue(object, key, value) {
       'writable': true
     })
   } else {
+    // 普通情况就直接分配
     object[key] = value
   }
 }

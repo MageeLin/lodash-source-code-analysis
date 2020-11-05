@@ -8,19 +8,33 @@
   </head>
   <body>
     <script>
-      // uniqBy的官方示例
-      _.uniqBy([2.1, 1.2, 2.3], Math.floor);
-      console.log('LJY-dev: -------------------------------------------------------------------------------------');
-      console.log('LJY-dev: _.uniqBy([2.1, 1.2, 2.3], Math.floor)', _.uniqBy([2.1, 1.2, 2.3], Math.floor));
-      console.log('LJY-dev: -------------------------------------------------------------------------------------');
-      // => [2.1, 1.2]
-
-      // 用uniqWith实现
-      _.uniqWith([2.1, 1.2, 2.3], (arrVal, othVal) => Math.floor(arrVal) === Math.floor(othVal));
-      console.log('LJY-dev: -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------');
-      console.log('LJY-dev: _.uniqWith([2.1, 1.2, 2.3], (arrVal, othVal) => Math.floor(arrVal) === Math.floor(othVal))', _.uniqWith([2.1, 1.2, 2.3], (arrVal, othVal) => Math.floor(arrVal) === Math.floor(othVal)));
-      console.log('LJY-dev: -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------');
-      // => [2.1, 1.2]
+      function baseAssignValue(object, key, value) {
+        // 当给对象的原型分配值时，使用Object.defineProperty()
+        if (key == "__proto__") {
+          Object.defineProperty(object, key, {
+            configurable: true,
+            enumerable: true,
+            value: value,
+            writable: true,
+          });
+        } else {
+          // 普通情况就直接分配
+          object[key] = value;
+        }
+      }
+      let obj = {
+        a: 1,
+        b: 2,
+      };
+      let source = {
+        d: 3,
+        c: 4,
+      };
+      baseAssignValue(obj, "__proto__", source);
+      console.log(obj);
+      console.log('LJY-dev: -------------------------------------------');
+      console.log('LJY-dev: Object.keys(obj)', Object.keys(obj));
+      console.log('LJY-dev: -------------------------------------------');
     </script>
   </body>
 </html>

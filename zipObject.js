@@ -2,14 +2,13 @@ import assignValue from './.internal/assignValue.js'
 import baseZipObject from './.internal/baseZipObject.js'
 
 /**
- * This method is like `fromPairs` except that it accepts two arrays,
- * one of property identifiers and one of corresponding values.
- *
+ * 这个方法类似 `fromPairs`，但是它接受2个数组，
+ * 第一个数组中的值作为属性标识符（属性名），第二个数组中的值作为相应的属性值。
  * @since 0.4.0
  * @category Array
- * @param {Array} [props=[]] The property identifiers.
- * @param {Array} [values=[]] The property values.
- * @returns {Object} Returns the new object.
+ * @param {Array} [props=[]] 属性标识符数组
+ * @param {Array} [values=[]] 属性值数组
+ * @returns {Object} 返回一个新的对象
  * @see unzip, unzipWith, zip, zipObjectDeep, zipWith
  * @example
  *
