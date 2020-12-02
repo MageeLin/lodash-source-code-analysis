@@ -3,17 +3,15 @@ import isArrayLikeObject from './isArrayLikeObject.js'
 import last from './last.js'
 
 /**
- * This method is like `xor` except that it accepts `iteratee` which is
- * invoked for each element of each `arrays` to generate the criterion by
- * which they're compared. The order of result values is determined
- * by the order they occur in the arrays. The iteratee is invoked with one
- * argument: (value).
+ * 此方法类似 `xor` ，但是接受 `iteratee`（迭代器）参数，
+ * `iteratee` 调用每一个 array 的每一个值，用生成的新值进行比较。
+ * `iteratee` 调用1个参数：(value).
  *
  * @since 4.0.0
  * @category Array
- * @param {...Array} [arrays] The arrays to inspect.
- * @param {Function} iteratee The iteratee invoked per element.
- * @returns {Array} Returns the new array of filtered values.
+ * @param {...Array} [arrays] 要检查的数组
+ * @param {Function} iteratee iteratee 调用每个元素
+ * @returns {Array} 返回过滤值后的新数组
  * @see difference, union, unionBy, unionWith, without, xor, xorWith
  * @example
  *
@@ -21,10 +19,13 @@ import last from './last.js'
  * // => [1.2, 3.4]
  */
 function xorBy(...arrays) {
+  // 取最后一个参数为iteratee
   let iteratee = last(arrays)
+  // 如果最后一个参数仍然是数组，那iteratee就为undefined
   if (isArrayLikeObject(iteratee)) {
     iteratee = undefined
   }
+  // 过滤参数并调用baseXor
   return baseXor(arrays.filter(isArrayLikeObject), iteratee)
 }
 
